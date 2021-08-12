@@ -1,0 +1,292 @@
+[33mcommit 25b31956be32974768d5da9af0f7ed3f07c63468[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: arthemyo <arthemyo.rodriguz@gmail.com>
+Date:   Sat Aug 7 20:32:29 2021 -0300
+
+    Add field CEP, State, City and Street
+
+[1mdiff --git a/app_custom_arthemyo/cartridge/templates/default/account/components/registerForm.isml b/app_custom_arthemyo/cartridge/templates/default/account/components/registerForm.isml[m
+[1mindex 5e5fa33..27aea14 100644[m
+[1m--- a/app_custom_arthemyo/cartridge/templates/default/account/components/registerForm.isml[m
+[1m+++ b/app_custom_arthemyo/cartridge/templates/default/account/components/registerForm.isml[m
+[36m@@ -6,7 +6,7 @@[m
+     <div class="form-group[m
+         <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">[m
+         <label class="form-control-label" for="registration-form-fname">[m
+[31m-            Primeiro nome[m
+[32m+[m[32m            <isprint value="${pdict.profileForm.customer.firstname.label}" encoding="htmlcontent" />[m
+         </label>[m
+         <input[m
+             type="text"[m
+[36m@@ -22,7 +22,7 @@[m
+     <div class="form-group[m
+         <isif condition="${!!pdict.profileForm.customer.lastname.mandatory === true}">required</isif>">[m
+         <label class="form-control-label" for="registration-form-lname">[m
+[31m-            Sobrenome[m
+[32m+[m[32m            <isprint value="${pdict.profileForm.customer.lastname.label}" encoding="htmlcontent" />[m
+         </label>[m
+         <input[m
+             type="text"[m
+[36m@@ -35,6 +35,70 @@[m
+         <div class="invalid-feedback" id="form-lname-error"></div>[m
+     </div>[m
+ [m
+[32m+[m[32m     <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-fname">[m
+[32m+[m[32m            Cep[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-fname"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-fname-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.firstname.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-fname-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m     <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-fname">[m
+[32m+[m[32m            State[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-fname"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-fname-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.firstname.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-fname-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m     <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-fname">[m
+[32m+[m[32m            City[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-fname"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-fname-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.firstname.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-fname-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m     <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-fname">[m
+[32m+[m[32m            Street[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-fname"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-fname-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.firstname.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-fname-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+     <div class="form-group[m
+         <isif condition="${!!pdict.profileForm.customer.phone.mandatory === true}">required</isif>">[m
+         <label class="form-control-label" for="registration-form-phone">[m
+
+[33mcommit 86c8403cf3928272fad93b8ec59718479fc2ce6b[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: arthemyo <arthemyo.rodriguz@gmail.com>
+Date:   Sat Aug 7 00:01:31 2021 -0300
+
+    first commit
+
+[1mdiff --git a/app_custom_arthemyo/.project b/app_custom_arthemyo/.project[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cb3abdf[m
+[1m--- /dev/null[m
+[1m+++ b/app_custom_arthemyo/.project[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<projectDescription>[m
+[32m+[m	[32m<name>app_custom_arthemyo</name>[m
+[32m+[m	[32m<comment></comment>[m
+[32m+[m	[32m<projects>[m
+[32m+[m	[32m</projects>[m
+[32m+[m	[32m<buildSpec>[m
+[32m+[m		[32m<buildCommand>[m
+[32m+[m			[32m<name>com.demandware.studio.core.beehiveElementBuilder</name>[m
+[32m+[m			[32m<arguments>[m
+[32m+[m			[32m</arguments>[m
+[32m+[m		[32m</buildCommand>[m
+[32m+[m	[32m</buildSpec>[m
+[32m+[m	[32m<natures>[m
+[32m+[m		[32m<nature>com.demandware.studio.core.beehiveNature</nature>[m
+[32m+[m	[32m</natures>[m
+[32m+[m[32m</projectDescription>[m
+\ No newline at end of file[m
+[1mdiff --git a/app_custom_arthemyo/cartridge/app_custom_arthemyo.properties b/app_custom_arthemyo/cartridge/app_custom_arthemyo.properties[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2f7b120[m
+[1m--- /dev/null[m
+[1m+++ b/app_custom_arthemyo/cartridge/app_custom_arthemyo.properties[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m## cartridge.properties for cartridge app_custom_arthemyo[m
+[32m+[m[32m#Fri Aug 06 2021 15:23:36 GMT-0300 (Horário Padrão de Brasília)[m
+[32m+[m[32mdemandware.cartridges.app_custom_arthemyo.multipleLanguageStorefront=true[m
+[32m+[m[32mdemandware.cartridges.app_custom_arthemyo.id=app_custom_arthemyo[m
+[1mdiff --git a/app_custom_arthemyo/cartridge/templates/default/account/components/registerForm.isml b/app_custom_arthemyo/cartridge/templates/default/account/components/registerForm.isml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5e5fa33[m
+[1m--- /dev/null[m
+[1m+++ b/app_custom_arthemyo/cartridge/templates/default/account/components/registerForm.isml[m
+[36m@@ -0,0 +1,146 @@[m
+[32m+[m[32m<form[m
+[32m+[m[32m    action="${pdict.createAccountUrl}"[m
+[32m+[m[32m    class="registration"[m
+[32m+[m[32m    method="POST"[m
+[32m+[m[32m    name="${pdict.profileForm.htmlName}">[m
+[32m+[m[32m    <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-fname">[m
+[32m+[m[32m            Primeiro nome[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-fname"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-fname-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.firstname.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-fname-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.lastname.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-lname">[m
+[32m+[m[32m            Sobrenome[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-lname"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-lname-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.lastname.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-lname-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.phone.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-phone">[m
+[32m+[m[32m            <isprint value="${pdict.profileForm.customer.phone.label}" encoding="htmlcontent" />[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="tel"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-phone"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-phone-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.phone.attributes} encoding="off" />[m
+[32m+[m[32m            placeholder="${Resource.msg('example.phone','forms',null)}">[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-phone-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.email.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-email">[m
+[32m+[m[32m             <isprint value="${pdict.profileForm.customer.email.label}" encoding="htmlcontent" />[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-email"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-email-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.email.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-email-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.customer.emailconfirm.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-email-confirm">[m
+[32m+[m[32m            <isprint value="${pdict.profileForm.customer.emailconfirm.label}" encoding="htmlcontent" />[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-email-confirm"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-email-confirm-error"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.emailconfirm.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-email-confirm-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.login.password.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-password">[m
+[32m+[m[32m            <isprint value="${pdict.profileForm.login.password.label}" encoding="htmlcontent" />[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="password"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-password"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.8_255characters','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-password-error"[m
+[32m+[m[32m            autocomplete="off"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.login.password.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-password-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <div class="form-group[m
+[32m+[m[32m        <isif condition="${!!pdict.profileForm.login.passwordconfirm.mandatory === true}">required</isif>">[m
+[32m+[m[32m        <label class="form-control-label" for="registration-form-password-confirm">[m
+[32m+[m[32m            <isprint value="${pdict.profileForm.login.passwordconfirm.label}" encoding="htmlcontent" />[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="password"[m
+[32m+[m[32m            class="form-control"[m
+[32m+[m[32m            id="registration-form-password-confirm"[m
+[32m+[m[32m            data-missing-error="${Resource.msg('error.message.required','forms',null)}"[m
+[32m+[m[32m            data-range-error="${Resource.msg('error.message.8_255characters','forms',null)}"[m
+[32m+[m[32m            aria-describedby="form-password-confirm-error"[m
+[32m+[m[32m            autocomplete="off"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.login.passwordconfirm.attributes} encoding="off" />>[m
+[32m+[m[32m        <div class="invalid-feedback" id="form-password-confirm-error"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <div class="form-group custom-control custom-checkbox">[m
+[32m+[m[32m        <input[m
+[32m+[m[32m            type="checkbox"[m
+[32m+[m[32m            class="custom-control-input" id="add-to-email-list"[m
+[32m+[m[32m            <isprint value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />[m
+[32m+[m[32m        >[m
+[32m+[m[32m        <label class="custom-control-label" for="add-to-email-list">[m
+[32m+[m[32m            <isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" />[m
+[32m+[m[32m        </label>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>[m
+[32m+[m
+[32m+[m[32m    <button type="submit" class="btn btn-block btn-primary">[m
+[32m+[m[32m        ${Resource.msg('button.createaccount.registration', 'registration', null)}[m
+[32m+[m[32m    </button>[m
+[32m+[m[32m    <div class="privacy-policy">[m
+[32m+[m[32m        ${Resource.msg('description.privacypolicy.registration', 'registration', null)}[m
+[32m+[m[32m        <a href="${'#'}">[m
+[32m+[m[32m            ${Resource.msg('link.privacypolicy.registration', 'registration', null)}[m
+[32m+[m[32m        </a>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m</form>[m

@@ -160,6 +160,7 @@ server.post(
  * @param {querystringparameter} - rurl - redirect url. The value of this is a number. This number then gets mapped to an endpoint set up in oAuthRenentryRedirectEndpoints.js
  * @param {httpparameter} - dwfrm_profile_customer_firstname - Input field for the shoppers's first name
  * @param {httpparameter} - dwfrm_profile_customer_lastname - Input field for the shopper's last name
+ * @param {httpparameter} - dwfrm_profile_customer_CPFArthemyo - Input field for the shopper's CPF
  * @param {httpparameter} - dwfrm_profile_customer_phone - Input field for the shopper's phone number
  * @param {httpparameter} - dwfrm_profile_customer_email - Input field for the shopper's email address
  * @param {httpparameter} - dwfrm_profile_customer_emailconfirm - Input field for the shopper's email address
@@ -418,7 +419,7 @@ server.post(
         var result = {
             firstName: profileForm.customer.firstname.value,
             lastName: profileForm.customer.lastname.value,
-            cpfArthemyo: profileForm.custom.CPFArthemyo.value,
+            CPFArthemyo: profileForm.customer.CPFArthemyo.value,
             phone: profileForm.customer.phone.value,
             email: profileForm.customer.email.value,
             confirmEmail: profileForm.customer.emailconfirm.value,
@@ -462,7 +463,6 @@ server.post(
                     Transaction.wrap(function () {
                         profile.setFirstName(formInfo.firstName);
                         profile.setLastName(formInfo.lastName);
-                        profile.setCPFArthemyo(formInfo.CPFArthemyo);
                         profile.setEmail(formInfo.email);
                         profile.setPhoneHome(formInfo.phone);
                     });

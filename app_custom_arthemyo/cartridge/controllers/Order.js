@@ -450,7 +450,6 @@ server.post(
 
                             newCustomerProfile.firstName = registrationData.firstName;
                             newCustomerProfile.lastName = registrationData.lastName;
-                            newCustomerProfile.CPFArthemyo = registrationData.CPFArthemyo;
                             newCustomerProfile.phoneHome = registrationData.phone;
                             newCustomerProfile.email = login;
 

@@ -14,6 +14,7 @@ function getProfile(profile) {
 
     var CustomerMgr = require('dw/customer/CustomerMgr');
     var profileCustom = CustomerMgr.getCustomerByLogin(profile.email);
+    profileCustom = profileCustom.getProfile();
 
     if (profile) {
         result = {
@@ -28,6 +29,10 @@ function getProfile(profile) {
         result = null;
     }
     return result;
+}
+
+function maskCpf(cpf){
+    if (cpf.va)
 }
 
 /**

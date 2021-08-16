@@ -7,6 +7,7 @@ var Customer = require('dw/customer/Customer');
 /**
  * Creates a plain object that contains profile information
  * @param {Object} profile - current customer's profile
+ * 
  * @returns {Object} an object that contains information about the current customer's profile
  */
 function getProfile(profile) {
@@ -15,12 +16,19 @@ function getProfile(profile) {
     var CustomerMgr = require('dw/customer/CustomerMgr');
     var profileCustom = CustomerMgr.getCustomerByLogin(profile.email);
     profileCustom = profileCustom.getProfile();
+    
 
     if (profile) {
         result = {
             firstName: profile.firstName,
             lastName: profile.lastName,
+            birthday: profile.birthday,
             CPFArthemyo: profileCustom.custom.CPFArthemyo,
+            CEPArthemyo: profileCustom.custom.CEPArthemyo,
+            stateArthemyo: profileCustom.custom.stateArthemyo,
+            CityArthemyo: profileCustom.custom.CityArthemyo,
+            StreetArthemyo: profileCustom.custom.StreetArthemyo,
+            gender: profile.gender,
             email: profile.email,
             phone: Object.prototype.hasOwnProperty.call(profile, 'phone') ? profile.phone : profile.phoneHome,
             password: '********'
@@ -29,10 +37,6 @@ function getProfile(profile) {
         result = null;
     }
     return result;
-}
-
-function maskCpf(cpf){
-    if (cpf.va)
 }
 
 /**

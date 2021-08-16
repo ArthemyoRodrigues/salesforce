@@ -1,3 +1,7 @@
+<script>
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 <form
     action="${pdict.createAccountUrl}"
     class="registration"
@@ -38,7 +42,7 @@
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.CPFArthemyo.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-CPFArthemyo">
-            <isprint value="${pdict.profileForm.customer.CPFArthemyo.label}" encoding="htmlcontent" />
+            <isprint value="${pdict.profileForm.customer.CPFArthemyo.label}" encoding="htmlcontent"/>
         </label>
         <input
             type="text"
@@ -47,8 +51,112 @@
             data-missing-error="${Resource.msg('error.message.required','forms',null)}"
             data-range-error="${Resource.msg('error.message.14orless','forms',null)}"
             aria-describedby="form-CPFArthemyo-error"
+            placeholder="xxx.xxx.xxx-xx"
             <isprint value=${pdict.profileForm.customer.CPFArthemyo.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-CPFArthemyo-error"></div>
+    </div>
+
+     <div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.CEPArthemyo.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-CEPArthemyo">
+            <isprint value="${pdict.profileForm.customer.CEPArthemyo.label}" encoding="htmlcontent"/>
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            id="registration-form-CEPArthemyo"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.9orless','forms',null)}"
+            aria-describedby="form-CEPArthemyo-error"
+            placeholder="xxxxx-xx"
+            <isprint value=${pdict.profileForm.customer.CEPArthemyo.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-CEPArthemyo-error"></div>
+    </div>
+
+    <div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.stateArthemyo.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-stateArthemyo">
+            State
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            id="registration-form-stateArthemyo"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.9orless','forms',null)}"
+            aria-describedby="form-stateArthemyo-error"
+            <isprint value=${pdict.profileForm.customer.stateArthemyo.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-stateArthemyo-error"></div>
+    </div>
+
+    <div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.CityArthemyo.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-CityArthemyo">
+            City
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            id="registration-form-CityArthemyo"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.9orless','forms',null)}"
+            aria-describedby="form-CityArthemyo-error"
+            <isprint value=${pdict.profileForm.customer.CityArthemyo.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-CityArthemyo-error"></div>
+    </div>
+
+    <div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.StreetArthemyo.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-StreetArthemyo">
+            Street
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            id="registration-form-StreetArthemyo"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.orless','forms',null)}"
+            aria-describedby="form-StreetArthemyo-error"
+            <isprint value=${pdict.profileForm.customer.StreetArthemyo.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-StreetArthemyo-error"></div>
+    </div>
+
+    <div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.birthday.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-birthday">
+            Birthday
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            id="registration-form-birthday"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.orless','forms',null)}"
+            aria-describedby="form-birthday-error"
+            <isprint value=${pdict.profileForm.customer.birthday.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-birthday-error"></div>
+    </div>
+
+     <div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.gender.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-gender">
+            <isprint value="${pdict.profileForm.customer.gender.label}" encoding="htmlcontent"/>
+        </label>
+        <select
+            type="number"
+            class="form-control"
+            id="registration-form-gender"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.12orless','forms',null)}"
+            aria-describedby="form-gender-error"
+            placeholder="Gender"
+            <isprint value=${pdict.profileForm.customer.gender.attributes} encoding="off" />>
+             <option value="0">0 (Undefined)</option>
+             <option value="1">1 (Male)</option>
+             <option value="2">2 (Female)</option>
+             <option value="3">3 (Other)</option>
+        </select>
+        <div class="invalid-feedback" id="form-gender-error"></div>
     </div>
 
     <div class="form-group
@@ -160,3 +268,13 @@
         </a>
     </div>
 </form>
+
+
+
+<script>
+    $("#registration-form-phone").mask("(99) 99999-9999")
+    $("#registration-form-CPFArthemyo").mask("999.999.999-99")
+    $("#registration-form-CEPArthemyo").mask("99999-999")
+    $("#registration-form-birthday").mask("99/99/9999")
+</script>
+<script src="./apiCep.js"></script>

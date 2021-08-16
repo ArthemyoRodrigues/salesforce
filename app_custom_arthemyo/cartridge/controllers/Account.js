@@ -5,10 +5,12 @@
  */
 
 var server = require('server');
-
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+
+var cal = new dw.util.Calendar();
+dw.util.StringUtils.formatCalendar(cal, "pt_BR", Calendar.INPUT_DATE_TIME_PATTERN);
 
 /**
  * Checks if the email value entered is correct format
@@ -171,6 +173,7 @@ server.post(
  * @param {category} - sensitive
  * @param {returns} - json
  * @param {serverfunction} - post
+ *
  */
 server.post(
     'SubmitRegistration',
@@ -218,6 +221,12 @@ server.post(
             firstName: registrationForm.customer.firstname.value,
             lastName: registrationForm.customer.lastname.value,
             CPFArthemyo: registrationForm.customer.CPFArthemyo.value,
+            CEPArthemyo: registrationForm.customer.CEPArthemyo.value,
+            stateArthemyo: registrationForm.customer.stateArthemyo.value,
+            CityArthemyo: registrationForm.customer.CityArthemyo.value,
+            StreetArthemyo: registrationForm.customer.StreetArthemyo.value,
+            birthday: registrationForm.customer.birthday.value,
+            gender: registrationForm.customer.gender.value,
             phone: registrationForm.customer.phone.value,
             email: registrationForm.customer.email.value,
             emailConfirm: registrationForm.customer.emailconfirm.value,
@@ -267,6 +276,12 @@ server.post(
                                 newCustomerProfile.firstName = registrationForm.firstName;
                                 newCustomerProfile.lastName = registrationForm.lastName;
                                 newCustomerProfile.custom.CPFArthemyo = registrationForm.CPFArthemyo;
+                                newCustomerProfile.custom.CEPArthemyo = registrationForm.CEPArthemyo;
+                                newCustomerProfile.custom.stateArthemyo = registrationForm.stateArthemyo;
+                                newCustomerProfile.custom.CityArthemyo= registrationForm.CityArthemyo;
+                                newCustomerProfile.custom.StreetArthemyo = registrationForm.StreetArthemyo;
+                                newCustomerProfile.birthday = registrationForm.birthday;
+                                newCustomerProfile.gender = registrationForm.gender;
                                 newCustomerProfile.phoneHome = registrationForm.phone;
                                 newCustomerProfile.email = registrationForm.email;
                             }

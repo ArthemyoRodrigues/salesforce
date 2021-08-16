@@ -9,8 +9,7 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 
-var cal = new dw.util.Calendar();
-dw.util.StringUtils.formatCalendar(cal, "pt_BR", Calendar.INPUT_DATE_TIME_PATTERN);
+
 
 /**
  * Checks if the email value entered is correct format

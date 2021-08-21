@@ -40,14 +40,14 @@
         </dl>
         <dl>
             <dt>${Resource.msg('label.profile.gender','account',null)}</dt>
-                <isif condition="${!pdict.account.profile.gender == 3}"> 
-                    <dd>${Resource.msg('label.profile.gender.other','account',null)}</dd>
-                </isif>
-                <isif condition="${!pdict.account.profile.gender == 1}"> 
-                    <dd>${Resource.msg('label.profile.gender.male','account',null)}</dd>
-                </isif>
-                <isif condition="${!pdict.account.profile.gender == 2}"> 
-                    <dd>${Resource.msg('label.profile.gender.female','account',null)}</dd>
+                <isif condition="${pdict.account.profile.gender}"> 
+                        <dd>${Resource.msg('label.profile.gender.male','account',null)}</dd>
+                    <iselseif condition="${pdict.account.profile.gender}"> 
+                        <dd>${Resource.msg('label.profile.gender.female','account',null)}</dd>
+                    </iselseif>
+                    <iselse> 
+                        <dd>${Resource.msg('label.profile.gender.undefined','account',null)}</dd>
+                    </iselse>
                 </isif>
         </dl>
         
